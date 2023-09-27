@@ -42,7 +42,38 @@ export const getAlerts = async (
     params.filterStatus = filterStatus
   }
 
+  /**
+   * @todo
+   * Error handling should be added
+   */
   const { data } = await axios.get<GetAlertsResponse>('/api/alerts', { params })
+
+  return data
+}
+
+interface PostAlertProps {
+  transactionId: string
+  description: string
+}
+
+export const postAlert = async(props: PostAlertProps): Promise<void> => {
+  const {
+    transactionId,
+    description
+  } = props
+
+  const payload = {
+    transactionId,
+    description,
+    createdAt: new Date().toISOString(),
+    status: 'OPEN'
+  }
+
+  /**
+   * @todo
+   * Error handling should be added
+   */
+  const { data } = await axios.post<void>('/api/alerts', payload)
 
   return data
 }

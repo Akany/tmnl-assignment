@@ -34,6 +34,10 @@ export const useAlerts = (search: string, status: Status) => {
     fetchAlerts(meta.currentPage - 1, status)
   }
 
+  const reFetch = () => {
+    fetchAlerts(meta.currentPage, status)
+  }
+
   /**
    * Backend does not have search api
    * Implementing sorting of a current page
@@ -60,5 +64,6 @@ export const useAlerts = (search: string, status: Status) => {
     nextPage,
     isPrevious: meta.currentPage > 1,
     previousPage,
+    reFetch
   }
 }

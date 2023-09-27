@@ -1,0 +1,19 @@
+.article {
+  padding: 20px;
+  min-width: 550px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}

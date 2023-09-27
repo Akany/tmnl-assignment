@@ -10,17 +10,15 @@ import styles from './styles.module.scss'
 export const Alerts = () => {
   const [search, setSearch] = useState('')
   const [status, setStatus] = useState<Status>('ALL')
-  const { alerts, page, nextPage, previousPage, totalPages } = useAlerts(search, status)
+  const { alerts, page, nextPage, previousPage, totalPages, reFetch } = useAlerts(search, status)
 
   const onSearchChange = (value: string) => {
     setSearch(value)
   }
 
-  console.log(status)
-
   return (
     <article>
-      <Toolbar onSearch={onSearchChange} onStatus={setStatus} />
+      <Toolbar onSearch={onSearchChange} onStatus={setStatus} onCreated={reFetch} />
       <h1 className={styles.title}>Alerts</h1>
       <AlertsList className={styles['alerts-list']} alerts={alerts} />
       <Pagination page={page} totalPages={totalPages} goNext={nextPage} goPrevious={previousPage} />

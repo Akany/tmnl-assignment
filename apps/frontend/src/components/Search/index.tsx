@@ -1,7 +1,7 @@
 import React from 'react'
+import { Input } from '../Input'
 
 import styles from './styles.module.scss'
-
 interface SearchProps {
   onSearchChange: (search: string) => void
 }
@@ -27,5 +27,5 @@ export const Search = (props: SearchProps) => {
     onDebounceSearch(event.target.value)
   }
 
-  return <input className={styles.input} type="text" placeholder="Search" onChange={onChange} />
+  return <Input className={styles.input} type="text" placeholder="Search" onChange={onChange} />
 }
