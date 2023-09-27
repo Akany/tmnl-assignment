@@ -47,13 +47,13 @@ export const useAlerts = (search: string, status: Status) => {
    */
   const filteredAlerts = search
     ? alerts.filter((alert) => {
-      const { transactionId, description } = alert
+        const { transactionId, description } = alert
 
-      return (
-        transactionId.toLowerCase().includes(search.toLowerCase()) ||
+        return (
+          transactionId.toLowerCase().includes(search.toLowerCase()) ||
           description.toLowerCase().includes(search.toLowerCase())
-      )
-    })
+        )
+      })
     : alerts
 
   return {
