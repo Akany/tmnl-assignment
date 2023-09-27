@@ -1,3 +1,7 @@
+/**
+ * @todo
+ * App gets bigger, might be time to add state management tool
+ */
 import { Alerts } from '../views/Alerts'
 import './styles.css'
 
