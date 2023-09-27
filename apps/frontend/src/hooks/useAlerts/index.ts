@@ -10,12 +10,12 @@ export const useAlerts = () => {
     itemCount: 0,
     itemsPerPage: limit,
     totalItems: 0,
-    totalPages: 0
+    totalPages: 0,
   })
 
   useEffect(() => {
     fetchAlerts(meta.currentPage)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchAlerts = async (page: Meta['currentPage']) => {
@@ -39,6 +39,6 @@ export const useAlerts = () => {
     isNext: meta.currentPage < meta.totalPages,
     nextPage,
     isPrevious: meta.currentPage > 1,
-    previousPage
+    previousPage,
   }
 }

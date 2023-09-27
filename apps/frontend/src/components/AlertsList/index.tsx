@@ -4,14 +4,7 @@ import { useAlerts } from '../../hooks/useAlerts'
 import styles from './styles.module.scss'
 
 export function AlertsList() {
-  const {
-    alerts,
-    page,
-    isNext,
-    nextPage,
-    isPrevious,
-    previousPage
-  } = useAlerts()
+  const { alerts, page, isNext, nextPage, isPrevious, previousPage } = useAlerts()
 
   console.log('alerts', alerts)
 
@@ -39,9 +32,13 @@ export function AlertsList() {
         </thead>
         <tbody>{rows}</tbody>
       </table>
-      <button onClick={previousPage} disabled={!isPrevious}>Previous</button>
+      <button onClick={previousPage} disabled={!isPrevious}>
+        Previous
+      </button>
       {page}
-      <button onClick={nextPage} disabled={!isNext}>Next</button>
+      <button onClick={nextPage} disabled={!isNext}>
+        Next
+      </button>
     </section>
   )
 }
