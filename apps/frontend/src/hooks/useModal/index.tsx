@@ -11,13 +11,17 @@ export const useModal = () => {
       root.unmount()
     }
 
-    root.render(<Modal title={title} onClose={close} >{children}</Modal>)
+    root.render(
+      <Modal title={title} onClose={close}>
+        {children}
+      </Modal>
+    )
     document.body.appendChild(modalNode)
 
     return close
   }
 
   return {
-    showModal
+    showModal,
   }
 }

@@ -64,6 +64,6 @@ export const useAlerts = (search: string, status: Status) => {
     nextPage,
     isPrevious: meta.currentPage > 1,
     previousPage,
-    reFetch
+    reFetch,
   }
 }

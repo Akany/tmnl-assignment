@@ -31,7 +31,7 @@ export const Alert = (props: AlertProps) => {
     setDescription(event.target.value)
   }
 
-  const onSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     await postAlert({

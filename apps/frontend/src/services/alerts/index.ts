@@ -56,17 +56,14 @@ interface PostAlertProps {
   description: string
 }
 
-export const postAlert = async(props: PostAlertProps): Promise<void> => {
-  const {
-    transactionId,
-    description
-  } = props
+export const postAlert = async (props: PostAlertProps): Promise<void> => {
+  const { transactionId, description } = props
 
   const payload = {
     transactionId,
     description,
     createdAt: new Date().toISOString(),
-    status: 'OPEN'
+    status: 'OPEN',
   }
 
   /**

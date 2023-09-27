@@ -15,10 +15,8 @@ export const NewAlert = (props: NewAlertProps) => {
       props.onCreated()
     }
 
-    const closeModal = showModal('New Alert', <Alert onCreated={onCreated}/>)
+    const closeModal = showModal('New Alert', <Alert onCreated={onCreated} />)
   }
 
-  return (
-    <Button onClick={onClick}>New Alert</Button>
-  )
+  return <Button onClick={onClick}>New Alert</Button>
 }

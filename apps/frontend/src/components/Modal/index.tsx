@@ -1,5 +1,5 @@
 import React from 'react'
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from '@mui/icons-material/Close'
 
 import styles from './styles.module.scss'
 
@@ -21,9 +21,7 @@ export const Modal = (props: ModalProps) => {
             <CloseIcon />
           </button>
         </nav>
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       </section>
     </main>
   )
