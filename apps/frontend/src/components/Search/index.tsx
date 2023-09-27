@@ -27,7 +27,5 @@ export const Search = (props: SearchProps) => {
     onDebounceSearch(event.target.value)
   }
 
-  return (
-    <input className={styles.input} type="text" placeholder="Search" onChange={onChange} />
-  )
+  return <input className={styles.input} type="text" placeholder="Search" onChange={onChange} />
 }

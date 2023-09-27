@@ -15,7 +15,7 @@ export const Toolbar = (props: ToolbarProps) => {
     <section className={styles.section}>
       <button>Crate</button>
       <Search onSearchChange={onSearch} />
-      <Status onStatusChange={onStatus}/>
+      <Status onStatusChange={onStatus} />
     </section>
   )
 }

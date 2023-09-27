@@ -16,14 +16,14 @@ export const Alerts = () => {
     setSearch(value)
   }
 
-  console.log(status);
+  console.log(status)
 
   return (
     <article>
-      <Toolbar onSearch={onSearchChange} onStatus={setStatus}/>
+      <Toolbar onSearch={onSearchChange} onStatus={setStatus} />
       <h1 className={styles.title}>Alerts</h1>
-      <AlertsList className={styles['alerts-list']} alerts={alerts}/>
-      <Pagination page={page} totalPages={totalPages} goNext={nextPage} goPrevious={previousPage}/>
+      <AlertsList className={styles['alerts-list']} alerts={alerts} />
+      <Pagination page={page} totalPages={totalPages} goNext={nextPage} goPrevious={previousPage} />
     </article>
   )
 }

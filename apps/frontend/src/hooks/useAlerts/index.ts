@@ -41,13 +41,16 @@ export const useAlerts = (search: string, status: Status) => {
    * @TODO
    * Search should be implemented on a backend.
    */
-  const filteredAlerts = search ? alerts
-    .filter((alert) => {
+  const filteredAlerts = search
+    ? alerts.filter((alert) => {
       const { transactionId, description } = alert
 
-      return transactionId.toLowerCase().includes(search.toLowerCase()) ||
-        description.toLowerCase().includes(search.toLowerCase())
-    }) : alerts
+      return (
+        transactionId.toLowerCase().includes(search.toLowerCase()) ||
+          description.toLowerCase().includes(search.toLowerCase())
+      )
+    })
+    : alerts
 
   return {
     alerts: filteredAlerts,

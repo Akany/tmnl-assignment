@@ -23,7 +23,9 @@ export const Pagination = (props: PaginationProps) => {
       <button className={styles.button} onClick={goPrevious} disabled={!isPrevious}>
         <NavigateBeforeIcon color={isPrevious ? 'action' : 'disabled'} />
       </button>
-      <span>{page} / {totalPages}</span>
+      <span>
+        {page} / {totalPages}
+      </span>
       <button className={styles.button} onClick={goNext} disabled={!isNext}>
         <NavigateNextIcon color={isNext ? 'action' : 'disabled'} />
       </button>

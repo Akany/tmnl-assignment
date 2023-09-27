@@ -28,7 +28,11 @@ interface GetAlertsParams {
   filterStatus?: Omit<Status, 'ALL'>
 }
 
-export const getAlerts = async (page: Meta['currentPage'], limit: Meta['itemsPerPage'], filterStatus: Status): Promise<GetAlertsResponse> => {
+export const getAlerts = async (
+  page: Meta['currentPage'],
+  limit: Meta['itemsPerPage'],
+  filterStatus: Status
+): Promise<GetAlertsResponse> => {
   const params: GetAlertsParams = {
     page,
     limit,
