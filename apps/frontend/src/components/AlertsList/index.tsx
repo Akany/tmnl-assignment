@@ -1,12 +1,15 @@
 import React from 'react'
 import classnames from 'classnames'
-import { useAlerts } from '../../hooks/useAlerts'
+import { Alert } from '../../services/alerts'
 import styles from './styles.module.scss'
 
-export function AlertsList() {
-  const { alerts, page, isNext, nextPage, isPrevious, previousPage } = useAlerts()
+interface AlertsListProps {
+  className: string
+  alerts: Alert[]
+}
 
-  console.log('alerts', alerts)
+export function AlertsList(props: AlertsListProps) {
+  const { className, alerts } = props
 
   const rows = alerts.map((alert) => {
     const { id, transactionId, description } = alert
@@ -21,7 +24,7 @@ export function AlertsList() {
   })
 
   return (
-    <section>
+    <section className={className}>
       <table className={styles.table}>
         <thead className={styles.head}>
           <tr>
@@ -32,13 +35,6 @@ export function AlertsList() {
         </thead>
         <tbody>{rows}</tbody>
       </table>
-      <button onClick={previousPage} disabled={!isPrevious}>
-        Previous
-      </button>
-      {page}
-      <button onClick={nextPage} disabled={!isNext}>
-        Next
-      </button>
     </section>
   )
 }

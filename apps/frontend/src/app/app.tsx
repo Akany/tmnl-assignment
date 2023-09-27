@@ -1,10 +1,10 @@
-import { AlertsList } from '../components/AlertsList'
+import { Alerts } from '../views/Alerts'
 import './styles.css'
 
 export function App() {
   return (
     <main>
-      <AlertsList />
+      <Alerts />
     </main>
   )
 }

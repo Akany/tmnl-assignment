@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Status } from '../../components/Status'
 
 export interface Alert {
   id: string
@@ -21,13 +22,23 @@ interface GetAlertsResponse {
   meta: Meta
 }
 
-export const getAlerts = async (page: Meta['currentPage'], limit: Meta['itemsPerPage']): Promise<GetAlertsResponse> => {
-  const { data } = await axios.get<GetAlertsResponse>('/api/alerts', {
-    params: {
-      page,
-      limit,
-    },
-  })
+interface GetAlertsParams {
+  page: Meta['currentPage']
+  limit: Meta['itemsPerPage']
+  filterStatus?: Omit<Status, 'ALL'>
+}
+
+export const getAlerts = async (page: Meta['currentPage'], limit: Meta['itemsPerPage'], filterStatus: Status): Promise<GetAlertsResponse> => {
+  const params: GetAlertsParams = {
+    page,
+    limit,
+  }
+
+  if (filterStatus !== 'ALL') {
+    params.filterStatus = filterStatus
+  }
+
+  const { data } = await axios.get<GetAlertsResponse>('/api/alerts', { params })
 
   return data
 }
