@@ -3,7 +3,7 @@ import { Toolbar } from '.'
 
 describe('Toolbar', () => {
   it('Should render', () => {
-    render(<Toolbar onSearch={jest.fn()} onStatus={jest.fn()} onCreated={jest.fn()}/>)
+    render(<Toolbar onSearch={jest.fn()} onStatus={jest.fn()} onCreated={jest.fn()} />)
 
     expect(screen.getByRole('button', { name: 'New Alert' })).toBeDefined()
     expect(screen.getByRole('searchbox')).toBeDefined()

@@ -14,7 +14,7 @@ const fakeAlerts = (amount: number) => {
       transactionId: string.uuid(),
       description: lorem.paragraph(),
       createdAt: date.anytime(),
-      status: helpers.arrayElement(statuses)
+      status: helpers.arrayElement(statuses),
     })
   }
 
@@ -23,7 +23,7 @@ const fakeAlerts = (amount: number) => {
 
 describe('AlertsList', () => {
   it('Should render list', () => {
-    render(<AlertsList alerts={fakeAlerts(5)}/>)
+    render(<AlertsList alerts={fakeAlerts(5)} />)
 
     const table = screen.getByRole('table')
 
@@ -31,7 +31,7 @@ describe('AlertsList', () => {
   })
 
   it('Should render heading', () => {
-    render(<AlertsList alerts={fakeAlerts(5)}/>)
+    render(<AlertsList alerts={fakeAlerts(5)} />)
 
     expect(screen.getByText('Id')).toBeDefined()
     expect(screen.getByText('Transaction Id')).toBeDefined()
@@ -41,8 +41,7 @@ describe('AlertsList', () => {
   it('Should render table', () => {
     const alerts = fakeAlerts(5)
 
-    render(<AlertsList alerts={alerts}/>)
-
+    render(<AlertsList alerts={alerts} />)
 
     alerts.forEach((alert) => {
       expect(screen.getByText(alert.id)).toBeDefined()

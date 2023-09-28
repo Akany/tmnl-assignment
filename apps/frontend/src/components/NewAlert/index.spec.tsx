@@ -3,20 +3,20 @@ import { NewAlert } from '.'
 
 jest.mock('../../services/alerts', () => {
   return {
-    postAlert: () => new Promise((resolve) => resolve(true))
+    postAlert: () => new Promise((resolve) => resolve(true)),
   }
 })
 
 describe('NewAlert', () => {
   afterEach(cleanup)
   it('Should render button', () => {
-    render(<NewAlert onCreated={jest.fn()}/>)
+    render(<NewAlert onCreated={jest.fn()} />)
 
     expect(screen.getByRole('button', { name: 'New Alert' })).toBeDefined()
   })
 
   it('Should show modal on press', () => {
-    render(<NewAlert onCreated={jest.fn()}/>)
+    render(<NewAlert onCreated={jest.fn()} />)
 
     fireEvent.click(screen.getByRole('button', { name: 'New Alert' }))
 
@@ -25,7 +25,7 @@ describe('NewAlert', () => {
   })
 
   it('Should render new alert form', () => {
-    render(<NewAlert onCreated={jest.fn()}/>)
+    render(<NewAlert onCreated={jest.fn()} />)
 
     fireEvent.click(screen.getByRole('button', { name: 'New Alert' }))
 

@@ -15,7 +15,7 @@ jest.mock('../../hooks/useAlerts')
 const { lorem, string, date, helpers } = faker
 
 const fakeAlerts = (amount) => {
-  const statuses= ['OPEN', 'CLOSED']
+  const statuses = ['OPEN', 'CLOSED']
   const alerts = []
 
   for (let i = 0; i < amount; i++) {
@@ -24,7 +24,7 @@ const fakeAlerts = (amount) => {
       transactionId: string.uuid(),
       description: lorem.paragraph(),
       createdAt: date.anytime(),
-      status: helpers.arrayElement(statuses)
+      status: helpers.arrayElement(statuses),
     })
   }
 
@@ -42,7 +42,12 @@ describe('Alerts', () => {
       const reFetch = jest.fn()
 
       return {
-        alerts, page, nextPage, previousPage, totalPages, reFetch
+        alerts,
+        page,
+        nextPage,
+        previousPage,
+        totalPages,
+        reFetch,
       }
     })
 
@@ -61,24 +66,33 @@ describe('Alerts', () => {
 
     useAlerts.mockImplementation(() => {
       return {
-        alerts, page, nextPage, previousPage, totalPages, reFetch
+        alerts,
+        page,
+        nextPage,
+        previousPage,
+        totalPages,
+        reFetch,
       }
     })
 
     render(<Alerts />)
 
     const search = alerts[0].description.substring(0, 3)
-    const filteredAlerts = alerts
-      .filter((alert) => alert.description.toLowerCase().indexOf(search.toLowerCase()) > -1)
+    const filteredAlerts = alerts.filter((alert) => alert.description.toLowerCase().indexOf(search.toLowerCase()) > -1)
 
     act(() => {
-      fireEvent.change(screen.getByRole('searchbox'), { target: { value: search }})
+      fireEvent.change(screen.getByRole('searchbox'), { target: { value: search } })
     })
 
     setTimeout(() => {
       useAlerts.mockImplementation(() => {
         return {
-          alerts: filteredAlerts, page, nextPage, previousPage, totalPages, reFetch
+          alerts: filteredAlerts,
+          page,
+          nextPage,
+          previousPage,
+          totalPages,
+          reFetch,
         }
       })
 

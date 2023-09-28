@@ -4,7 +4,11 @@ import { Modal } from '.'
 
 describe('Modal', () => {
   it('Should render', () => {
-    render(<Modal title={faker.lorem.word()} onClose={jest.fn()}>Content</Modal>)
+    render(
+      <Modal title={faker.lorem.word()} onClose={jest.fn()}>
+        Content
+      </Modal>
+    )
 
     expect(screen.getByRole('dialog')).toBeDefined()
   })
@@ -12,13 +16,21 @@ describe('Modal', () => {
   it('Should render title', () => {
     const title = faker.lorem.word()
 
-    render(<Modal title={title} onClose={jest.fn()}>Content</Modal>)
+    render(
+      <Modal title={title} onClose={jest.fn()}>
+        Content
+      </Modal>
+    )
 
     expect(screen.getByRole('heading', { name: title })).toBeDefined()
   })
 
   it('Should render close icon', () => {
-    render(<Modal title={faker.lorem.word()} onClose={jest.fn()}>Content</Modal>)
+    render(
+      <Modal title={faker.lorem.word()} onClose={jest.fn()}>
+        Content
+      </Modal>
+    )
 
     expect(screen.getByRole('button', { name: 'close' })).toBeDefined()
   })
@@ -32,14 +44,22 @@ describe('Modal', () => {
       </form>
     )
 
-    render(<Modal title={title} onClose={jest.fn()}>{content}</Modal>)
+    render(
+      <Modal title={title} onClose={jest.fn()}>
+        {content}
+      </Modal>
+    )
 
     expect(screen.getByRole('form')).toBeDefined()
   })
 
   it('Should notify on close', () => {
     const onClose = jest.fn()
-    render(<Modal title={faker.lorem.word()} onClose={onClose}>Content</Modal>)
+    render(
+      <Modal title={faker.lorem.word()} onClose={onClose}>
+        Content
+      </Modal>
+    )
 
     fireEvent.click(screen.getByRole('button', { name: 'close' }))
 
