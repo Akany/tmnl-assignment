@@ -13,11 +13,11 @@ export const Modal = (props: ModalProps) => {
   const { children, onClose, title } = props
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} role="dialog">
       <section className={styles.section}>
         <nav className={styles.nav}>
           <h2 className={styles.title}>{title}</h2>
-          <button className={styles.close} onClick={onClose}>
+          <button className={styles.close} onClick={onClose} aria-label="close">
             <CloseIcon />
           </button>
         </nav>

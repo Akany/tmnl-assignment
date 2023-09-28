@@ -19,16 +19,16 @@ export const Pagination = (props: PaginationProps) => {
   const isNext = page !== totalPages
 
   return (
-    <section className={classnames(styles.section, className)}>
-      <button className={styles.button} onClick={goPrevious} disabled={!isPrevious}>
+    <nav className={classnames(styles.section, className)} aria-label="pagination">
+      <button className={styles.button} onClick={goPrevious} disabled={!isPrevious} aria-label="previous-page">
         <NavigateBeforeIcon color={isPrevious ? 'action' : 'disabled'} />
       </button>
       <span>
         {page} / {totalPages}
       </span>
-      <button className={styles.button} onClick={goNext} disabled={!isNext}>
+      <button className={styles.button} onClick={goNext} disabled={!isNext} aria-label="next-page">
         <NavigateNextIcon color={isNext ? 'action' : 'disabled'} />
       </button>
-    </section>
+    </nav>
   )
 }

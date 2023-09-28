@@ -4,7 +4,7 @@ import { Alert } from '../../services/alerts'
 import styles from './styles.module.scss'
 
 interface AlertsListProps {
-  className: string
+  className?: string
   alerts: Alert[]
 }
 

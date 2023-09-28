@@ -44,7 +44,7 @@ export const Alert = (props: AlertProps) => {
 
   return (
     <article className={styles.article}>
-      <form className={styles.form} onSubmit={onSubmit}>
+      <form className={styles.form} onSubmit={onSubmit} name="new alert" aria-label="new alert">
         <div className={styles.row}>
           <Input className={styles.input} type="text" placeholder="Transaction Id" onChange={onTransactionChange} />
         </div>
